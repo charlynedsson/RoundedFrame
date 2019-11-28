@@ -1,52 +1,37 @@
 # RoundedFrame
 
-Use one of these packages:
+[![NuGet Package](https://img.shields.io/nuget/v/Plugin.RoundedFrame.svg)](https://www.nuget.org/packages/Plugin.RoundedFrame/1.0.1)
 
-| Version | Package | Description |
-| ------- | ------- | ----------- |
-| [![NuGet Package](https://img.shields.io/nuget/v/sqlite-net-pcl.svg)](https://www.nuget.org/packages/sqlite-net-pcl) | [sqlite-net-pcl](https://www.nuget.org/packages/sqlite-net-pcl) | .NET Standard Library |
-| [![NuGet Package with Encryption](https://img.shields.io/nuget/v/sqlite-net-sqlcipher.svg)](https://www.nuget.org/packages/sqlite-net-sqlcipher) | [sqlite-net-sqlcipher](https://www.nuget.org/packages/sqlite-net-sqlcipher) | With Encryption Support |
-
-Simply add a custom frame control that supports four independent corner radius values to your Xamarin project.
-
-SQLite-net was designed as a quick and convenient database layer. Its design follows from these *goals*:
-* Very easy to integrate with existing projects and runs on all the .NET platforms.
+| Platform | Version | Build |
+| ------- | ------- | ------- |
+|Xamarin.Android| API 26+ | <img src="https://img.shields.io/static/v1?label=build&message=passing&color=green"/> |
+|Windows 10 UWP | 10+ | <img src="https://img.shields.io/static/v1?label=build&message=passing&color=green"/> |
+|Xamarin.iOS | iOS 10+ | <img src="https://img.shields.io/static/v1?label=build&message=failed&color=red"/>
 
 ## NuGet Installation
 
-Install [Plugin.RoundedFrame](https://www.nuget.org/packages/) from NuGet.
+Install [Plugin.RoundedFrame](https://www.nuget.org/packages/Plugin.RoundedFrame/1.0.1) from NuGet.
 
 **Important:** You will need to add the NuGet package to **both** your *.NET Standard library project* and your *platform-dependent app project*.
 
-## Source Installation
+**XAML**
 
-SQLite-net is all contained in 1 file (I know, so cool right?) and is easy to add to your project. Just add [SQLite.cs](https://github.com/praeclarum/sqlite-net/blob/master/src/SQLite.cs) to your project, and you're ready to start creating tables. 
-
+Add reference
+```xml 
+<ContentPage
+	xmlns:control="clr-namespace:Plugin.RoundedFrame;assembly=Plugin.RoundedFrame"/>
+```
+Usage
+```xml
+<control:CrossRoundedFrame
+	CornerRadius="10,20,30,40"
+	HeightRequest="200"
+	WidthRequest="200"/>
+```
 ## Please Contribute!
 
-This is an open source project that welcomes contributions/suggestions/bug reports from those who use it. If you have any ideas on how to improve the library, please [post an issue here on GitHub](https://github.com/praeclarum/sqlite-net/issues). Please check out the [How to Contribute](https://github.com/praeclarum/sqlite-net/wiki/How-to-Contribute).
+This is an open source project that welcomes contributions/suggestions/bug reports from those who use it. If you have any ideas on how to improve the library, please [post an issue here on GitHub](https://github.com/charlynedsson/RoundedFrame/issues).
+**I am not able to build the nuget for Xamarin.iOS.** However, Xamarin.iOS renderer is in the solution. Please feel free to fork and build a package including iOS renderer. I will be glad to update it.
 
-```csharp
-public class Stock
-{
-	[PrimaryKey, AutoIncrement]
-	public int Id { get; set; }
-	public string Symbol { get; set; }
-}
-
-public class Valuation
-{
-	[PrimaryKey, AutoIncrement]
-	public int Id { get; set; }
-	[Indexed]
-	public int StockId { get; set; }
-	public DateTime Time { get; set; }
-	public decimal Price { get; set; }
-}
-```
-
-## Thank you!
-
-Thank you to the .NET community for embracing this project, and thank you to all the contributors who have helped to make this great.
-
-Thanks also to Tirza van Dijk (@tirzavdijk) for the great logo!
+## Xamarin Templates
+This plugin was packed with James Motemongo's [Xamarin Templates](https://github.com/jamesmontemagno/Xamarin-Templates).
