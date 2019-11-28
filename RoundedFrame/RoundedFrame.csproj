@@ -1,4 +1,4 @@
-﻿<Project Sdk="MSBuild.Sdk.Extras/2.0.54">
+<Project Sdk="MSBuild.Sdk.Extras/2.0.54">
 
   <PropertyGroup>
     <TargetFrameworks></TargetFrameworks>
@@ -14,10 +14,10 @@
     <PackageId>Plugin.RoundedFrame</PackageId>
     
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
-    <Version>1.0.0.0</Version>
-    <PackageVersion>1.0.0.0</PackageVersion>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <AssemblyFileVersion>1.0.1.0</AssemblyFileVersion>
+    <Version>1.0.1.0</Version>
+    <PackageVersion>1.0.1.0</PackageVersion>
     <PackOnBuild>true</PackOnBuild>
     <NeutralLanguage>en</NeutralLanguage>
     <LangVersion>default</LangVersion>
@@ -29,22 +29,19 @@
     <LangVersion>latest</LangVersion>
     <DebugType>portable</DebugType>
     
-    <!--TODO: Fill these in-->
-    <PackageLicenseUrl>LINK TO LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>LINK TO PROJECT</PackageProjectUrl>
-    <RepositoryUrl>LINK TO PROJECT</RepositoryUrl>
-    <PackageReleaseNotes>RELEASE NOTES</PackageReleaseNotes>
+    <PackageLicenseUrl>https://github.com/charlynedsson/RoundedFrame/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/charlynedsson/RoundedFrame</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/charlynedsson/RoundedFrame</RepositoryUrl>
+    <PackageReleaseNotes>See project page</PackageReleaseNotes>
     <PackageIconUrl>ICON URL</PackageIconUrl>
     <PackageTags>xamarin, windows, ios, android, xamarin.forms, plugin, RoundedFrame</PackageTags>
     
     <Title>RoundedFrame Plugin for Xamarin and Windows</Title>
-    <Summary>Summary of nuget</Summary>
-    <Description>Plugin Description</Description>
+    <Description>Simply add a custom frame control that supports four independent corner radius values to your Xamarin project.</Description>
     
-    
-    <Owners>YOU</Owners>
-    <Authors>YOU</Authors>
-    <Copyright>Copyright 2018</Copyright>
+    <Owners>Charly Nedsson</Owners>
+    <Authors>Charly Nedsson</Authors>
+    <Copyright>Copyright 2019</Copyright>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)'=='Debug' ">
@@ -85,6 +82,7 @@
   <ItemGroup>    
     <PackageReference Include="Xamarin.Forms" Version="4.2.0.910310" />
   </ItemGroup>
+  
   <!--Additional item groups-->
   <!--
   <ItemGroup Condition=" $(TargetFramework.StartsWith('xamarin.ios')) ">
@@ -93,6 +91,5 @@
     <Compile Include="Platforms\Xamarin\**\*.cs" />
     <Reference Include="OpenTK-1.0" />
   </ItemGroup>
-    
   -->
 </Project>
