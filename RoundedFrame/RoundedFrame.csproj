@@ -33,7 +33,7 @@
     <PackageProjectUrl>https://github.com/charlynedsson/RoundedFrame</PackageProjectUrl>
     <RepositoryUrl>https://github.com/charlynedsson/RoundedFrame</RepositoryUrl>
     <PackageReleaseNotes>See project page</PackageReleaseNotes>
-    <PackageIconUrl>ICON URL</PackageIconUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/charlynedsson/RoundedFrame/master/RoundedFrameIcon.png</PackageIconUrl>
     <PackageTags>xamarin, windows, ios, android, xamarin.forms, plugin, RoundedFrame</PackageTags>
     
     <Title>RoundedFrame Plugin for Xamarin and Windows</Title>
