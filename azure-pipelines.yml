@@ -19,14 +19,12 @@ pool:
 # The different steps in our build
 steps:
 - task: NuGetToolInstaller@0
-  displayName: 'Use NuGet 4.9.3'
+  displayName: 'Use NuGet 4.4.1'
   inputs:
-    versionSpec: 4.9.3
+    versionSpec: 4.4.1
 
 - task: NuGetCommand@2
   displayName: 'NuGet restore'
-  inputs:
-    restoreSolution: '/**/*.sln'
 
 - task: MSBuild@1
   displayName: 'Build solution'
