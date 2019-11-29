@@ -33,4 +33,4 @@ Usage
 This is an open source project that welcomes contributions/suggestions/bug reports from those who use it. If you have any ideas on how to improve the library, please [post an issue here on GitHub](https://github.com/charlynedsson/RoundedFrame/issues).
 
 ## Xamarin Templates
-This plugin was packed with James Motemongo's [Xamarin Templates](https://github.com/jamesmontemagno/Xamarin-Templates).
+This plugin was packed with James Motemango's [Xamarin Templates](https://github.com/jamesmontemagno/Xamarin-Templates).
