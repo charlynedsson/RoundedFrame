@@ -1,0 +1,45 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+# Defines that a commit to the master branch should trigger this build
+#trigger:
+#- master
+
+# The type of machine this build should run on and what software should be on it
+pool:
+  name: Hosted VS2017
+  demands: msbuild
+
+# The different steps in our build
+steps:
+- task: NuGetToolInstaller@0
+  displayName: 'Use NuGet 4.4.1'
+  inputs:
+    versionSpec: 4.4.1
+
+- task: NuGetCommand@2
+  displayName: 'NuGet restore'
+  inputs:
+    restoreSolution: RoundedFrame.sln
+
+# build and pack a final version of the NuGet package. Versioning is done through the name tag in this definition.
+- task: MSBuild@1
+  displayName: 'Build final'
+  inputs:
+    solution: RoundedFrame/RoundedFrame.csproj
+    msbuildArguments: '/t:restore;build;pack /p:PackageVersion=$(Build.BuildNumber) /p:PackageOutputPath=$(build.artifactstagingdirectory)/final /p:AssemblyFileVersion=$(Build.BuildNumber) '
+    clean: true
+
+# copy all the nupkg files created to the artifact directory
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+  inputs:
+    SourceFolder: '$(build.sourcesdirectory)'
+    Contents: '**\*.nupkg'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+
+# publish the artifacts as results of the build
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
