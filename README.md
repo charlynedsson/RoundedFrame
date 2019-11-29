@@ -1,6 +1,6 @@
 # RoundedFrame
 
-[![NuGet Package](https://img.shields.io/nuget/v/Plugin.RoundedFrame.svg)](https://www.nuget.org/packages/Plugin.RoundedFrame/1.0.1)
+[![NuGet Package](https://img.shields.io/nuget/v/Plugin.RoundedFrame.svg)](https://www.nuget.org/packages/Plugin.RoundedFrame/1.0.2)
 
 | Platform | Version | Build |
 | ------- | ------- | ------- |
