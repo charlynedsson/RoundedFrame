@@ -6,7 +6,7 @@
 | ------- | ------- | ------- |
 |Xamarin.Android| API 26+ | <img src="https://img.shields.io/static/v1?label=build&message=passing&color=green"/> |
 |Windows 10 UWP | 10+ | <img src="https://img.shields.io/static/v1?label=build&message=passing&color=green"/> |
-|Xamarin.iOS | iOS 10+ | <img src="https://img.shields.io/static/v1?label=build&message=failed&color=red"/>
+|Xamarin.iOS | iOS 10+ | <img src="https://img.shields.io/static/v1?label=build&message=passing&color=green"/>|
 
 ## NuGet Installation
 
@@ -31,7 +31,6 @@ Usage
 ## Please Contribute!
 
 This is an open source project that welcomes contributions/suggestions/bug reports from those who use it. If you have any ideas on how to improve the library, please [post an issue here on GitHub](https://github.com/charlynedsson/RoundedFrame/issues).
-**I am not able to build the nuget for Xamarin.iOS.** However, Xamarin.iOS renderer is in the solution. Please feel free to fork and build a package including iOS renderer. I will be glad to update it.
 
 ## Xamarin Templates
 This plugin was packed with James Motemongo's [Xamarin Templates](https://github.com/jamesmontemagno/Xamarin-Templates).
