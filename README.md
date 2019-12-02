@@ -25,6 +25,9 @@ Usage
 ```xml
 <control:CrossRoundedFrame
 	CornerRadius="10,20,30,40"
+	BackgroundColor="#FF4081"
+	HorizontalOptions="Center"
+	VerticalOptions="CenterAndExpand"		   
 	HeightRequest="200"
 	WidthRequest="200"/>
 ```
