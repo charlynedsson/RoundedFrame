@@ -1,7 +1,7 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras/2.0.54">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;MonoAndroid81;MonoAndroid90;MonoAndroid10;Xamarin.iOS10;Xamarin.iOS11;Xamarin.iOS12;Xamarin.iOS13;uap10.0.16299;uap10.0.17134;uap10.0.17763;uap10.0.18362</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;MonoAndroid81;MonoAndroid90;Xamarin.iOS10;Xamarin.iOS11;Xamarin.iOS12;uap10.0.16299;uap10.0.17134;uap10.0.17763</TargetFrameworks>
     <!--
     <TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">netstandard2.0;MonoAndroid81;uap10.0.16299</TargetFrameworks>
     <TargetFrameworks Condition=" '$(OS)' != 'Windows_NT' ">netstandard2.0;MonoAndroid81;Xamarin.iOS10;uap10.0.16299</TargetFrameworks>
