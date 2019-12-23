@@ -4,8 +4,8 @@
 # https://aka.ms/yaml
 
 # Defines that a commit to the master branch should trigger this build
-#trigger:
-#- master
+trigger:
+- master
 
 # The type of machine this build should run on and what software should be on it
 pool:
