@@ -1,10 +1,8 @@
-﻿using System;
-using Windows.UI.Xaml;
-using Xamarin.Forms.Platform.UWP;
-using Xamarin.Forms;
-using Windows.UI.Xaml.Media;
+﻿using Plugin.RoundedFrame;
 using System.ComponentModel;
-using Plugin.RoundedFrame;
+using Windows.UI.Xaml.Media;
+using Xamarin.Forms.Platform.UWP;
+using Point = Windows.Foundation.Point;
 
 [assembly: ExportRenderer(typeof(CrossRoundedFrame), typeof(Plugin.RoundedFrame.UWP.RoundedFrameImplementation))]
 namespace Plugin.RoundedFrame.UWP
@@ -24,6 +22,7 @@ namespace Plugin.RoundedFrame.UWP
             if (e.NewElement != null && Control != null)
             {
                 UpdateCornerRadius();
+                UpdateBackgroundColor();
             }
         }
 
@@ -33,15 +32,17 @@ namespace Plugin.RoundedFrame.UWP
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             base.OnElementPropertyChanged(sender, e);
-            if (e.PropertyName == nameof(CrossRoundedFrame.CornerRadius) ||
-                e.PropertyName == nameof(CrossRoundedFrame))
+            if (e.PropertyName == nameof(CrossRoundedFrame.CornerRadius) || e.PropertyName == nameof(CrossRoundedFrame.GradientDirection) ||
+                 e.PropertyName == nameof(CrossRoundedFrame.StartColor) || e.PropertyName == nameof(CrossRoundedFrame.EndColor) ||
+                 e.PropertyName == nameof(CrossRoundedFrame))
             {
                 UpdateCornerRadius();
+                UpdateBackgroundColor();
             }
         }
 
         /// <summary>
-        /// Method triggered when changes occures
+        /// Method triggered when changes occures to corner radius parameters
         /// </summary>
         private void UpdateCornerRadius()
         {
@@ -57,6 +58,73 @@ namespace Plugin.RoundedFrame.UWP
             int bottomLeft = (int)cornerRadius.Value.BottomLeft;
 
             this.Control.CornerRadius = new Windows.UI.Xaml.CornerRadius(topLeft, topRight, bottomRight, bottomLeft);
+        }
+
+        /// <summary>
+        /// Method triggered when changes occures to gradient parameters
+        /// </summary>
+        protected override void UpdateBackgroundColor()
+        {
+            base.UpdateBackgroundColor();
+            var customFrame = (Element as CrossRoundedFrame);
+            var startColor = customFrame?.StartColor;
+            var endColor = customFrame?.EndColor;
+            var gradientDirection = customFrame?.GradientDirection;
+            var backgroundColor = customFrame?.BackgroundColor;
+            LinearGradientBrush linearGradientBrush = new LinearGradientBrush();
+
+            if (!startColor.Value.IsDefault && !endColor.Value.IsDefault)
+            {
+                linearGradientBrush.GradientStops.Add(
+                    new GradientStop() { Color = startColor.Value.ToWindowsColor(), Offset = 0 });
+                linearGradientBrush.GradientStops.Add(
+                    new GradientStop() { Color = endColor.Value.ToWindowsColor(), Offset = 1 });
+
+                switch (gradientDirection.Value)
+                {
+                    default:
+                    case GradientDirections.ToRight:
+                        linearGradientBrush.StartPoint = new Point(0.0, 0.5);
+                        linearGradientBrush.EndPoint = new Point(1.0, 0.5);
+                        break;
+                    case GradientDirections.ToLeft:
+                        linearGradientBrush.StartPoint = new Point(1.0, 0.5);
+                        linearGradientBrush.EndPoint = new Point(0.0, 0.5);
+                        break;
+                    case GradientDirections.ToTop:
+                        linearGradientBrush.StartPoint = new Point(0.5, 1.0);
+                        linearGradientBrush.EndPoint = new Point(0.5, 0.0);
+                        break;
+                    case GradientDirections.ToBottom:
+                        linearGradientBrush.StartPoint = new Point(0.5, 0.0);
+                        linearGradientBrush.EndPoint = new Point(0.5, 1.0);
+                        break;
+                    case GradientDirections.ToTopLeft:
+                        linearGradientBrush.StartPoint = new Point(1.0, 1.0);
+                        linearGradientBrush.EndPoint = new Point(0.0, 0.0);
+                        break;
+                    case GradientDirections.ToTopRight:
+                        linearGradientBrush.StartPoint = new Point(0.0, 1.0);
+                        linearGradientBrush.EndPoint = new Point(1.0, 0.0);
+                        break;
+                    case GradientDirections.ToBottomLeft:
+                        linearGradientBrush.StartPoint = new Point(1.0, 0.0);
+                        linearGradientBrush.EndPoint = new Point(0.0, 1.0);
+                        break;
+                    case GradientDirections.ToBottomRight:
+                        linearGradientBrush.StartPoint = new Point(0.0, 0.0);
+                        linearGradientBrush.EndPoint = new Point(1.0, 1.0);
+                        break;
+                }
+            }
+
+            if (this.Control != null)
+            {
+                if (!startColor.Value.IsDefault && !endColor.Value.IsDefault)
+                    this.Control.Background = linearGradientBrush;
+                else
+                    Control.Background = backgroundColor.Value.IsDefault ? Xamarin.Forms.Color.Accent.ToBrush() : backgroundColor.Value.ToBrush();
+            }
         }
     }
 }
