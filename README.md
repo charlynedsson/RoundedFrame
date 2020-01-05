@@ -1,12 +1,13 @@
 # RoundedFrame
 
-[![NuGet Package](https://img.shields.io/nuget/v/Plugin.RoundedFrame.svg)](https://www.nuget.org/packages/Plugin.RoundedFrame/1.0.2)
+[![Build Status](https://dev.azure.com/charlynedsson/charlynedsson/_apis/build/status/charlynedsson.RoundedFrame?branchName=master)](https://dev.azure.com/charlynedsson/charlynedsson/_build/latest?definitionId=7&branchName=master)
+[![NuGet Package](https://img.shields.io/nuget/v/Plugin.RoundedFrame.svg)](https://www.nuget.org/packages/Plugin.RoundedFrame)
 
-| Platform | Version | Build |
-| ------- | ------- | ------- |
-|Xamarin.Android| API 26+ | <img src="https://img.shields.io/static/v1?label=build&message=passing&color=green"/> |
-|Windows 10 UWP | 10+ | <img src="https://img.shields.io/static/v1?label=build&message=passing&color=green"/> |
-|Xamarin.iOS | iOS 10+ | <img src="https://img.shields.io/static/v1?label=build&message=passing&color=green"/>|
+| Platform | Version | CornerRadius | GradientColor |
+| ------- | ------- | ------- | ------- |
+|Xamarin.Android| API 26+ | Supported | Supported |
+|Windows 10 UWP | 10+ | Supported | Supported |
+|Xamarin.iOS | iOS 10+ | Supported | Not supported |
 
 ## NuGet Installation
 
@@ -25,7 +26,9 @@ Usage
 ```xml
 <control:CrossRoundedFrame
 	CornerRadius="10,20,30,40"
-	BackgroundColor="#FF4081"
+	StartColor="Red"
+	EndColor="Yellow"
+	GradientDirection="ToBottom"
 	HorizontalOptions="Center"
 	VerticalOptions="CenterAndExpand"		   
 	HeightRequest="200"
