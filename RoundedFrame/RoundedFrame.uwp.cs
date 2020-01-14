@@ -1,4 +1,5 @@
-﻿using Plugin.RoundedFrame;
+﻿
+using Plugin.RoundedFrame;
 using System.ComponentModel;
 using Windows.UI.Xaml.Media;
 using Xamarin.Forms.Platform.UWP;
@@ -46,7 +47,9 @@ namespace Plugin.RoundedFrame.UWP
         /// </summary>
         private void UpdateCornerRadius()
         {
-            var cornerRadius = (Element as CrossRoundedFrame)?.CornerRadius;
+            var customFrame = (Element as CrossRoundedFrame);
+            var cornerRadius = customFrame?.CornerRadius;
+
             if (!cornerRadius.HasValue)
             {
                 return;
