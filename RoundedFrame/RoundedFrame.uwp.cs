@@ -20,7 +20,7 @@ namespace Plugin.RoundedFrame.UWP
         {
             base.OnElementChanged(e);
 
-            if (e.NewElement != null && Control != null)
+            if (e.NewElement != null)
             {
                 UpdateCornerRadius();
                 UpdateBackgroundColor();
